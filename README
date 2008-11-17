@@ -1,0 +1,6 @@
+Hello world.
+this is my first git repository.
+will be adding the gcc mainline and maintaining it here as a git repository.
+purpose is to make a gcc that can run and compile out of the box.
+based on that, will be adding the introspector patches.
+
