@@ -15,4 +15,8 @@ of the checkout dir.
 
 then I did an git add gcc
 and git commit
+  svn export /home_data1/gcc/newsvn/gcc
+  git add gcc/
+  git commit -m "first try"
+  git push git@github.com:h4ck3rm1k3/gcc.git
  
