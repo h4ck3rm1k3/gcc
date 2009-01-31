@@ -42,55 +42,71 @@ our $schema =
 		 }
                                                        ],
                                      
+	     'data_key' => 'node_type_id',
+
 	     'fields' => [
-    {
-	'uniqid' => 'comment',
-	'name' => 'comment',
-	'datatype' => 'text',
-	'units' => 'text',
-	'tags' => 'comment'
-    },
-    
-    ##enumeration_constant
-    {
-	'uniqid' => 'enumeration_constant',
-	'name' => 'enumeration_constant',
-	'datatype' => 'int',
-	'units' => 'int',
-	'tags' => 'enum value'
-    },
-    
 
-    {
-	'uniqid' => 'node_type_class',
-	'name' => 'node_type_class',
-                                                     'datatype' => 'class name',
-                                                     'units' => 'class',
-                                                     'tags' => 'node_type_class'
-                                                   },
-                                                   {
-                                                     'uniqid' => 'node_type_code',
-                                                     'name' => 'node_type_code',
-                                                     'datatype' => 'name',
-                                                     'units' => 'name',
-                                                     'tags' => 'node_type_code'
-                                                   },
-                                                   {
-                                                     'uniqid' => 'node_type_id',
-                                                     'name' => 'node_type_id',
-                                                     'datatype' => 'name',
-                                                     'units' => 'name',
-                                                     'tags' => 'node_type_id'
-                                                   },
-                                                   {
-                                                     'uniqid' => 'node_type_op_count',
-                                                     'name' => 'node_type_op_count',
-                                                     'datatype' => 'int',
-                                                     'units' => 'operand count',
-                                                     'tags' => 'number of operands'
-                                                   }
-                                                 ],
+		 {
+		     'uniqid' => 'node_type_id',
+		     'name' => 'node_type_id',
+		     'col_num' => 1,
+		     'datatype' => 'name',
+		     'units' => 'name',
+		     'key_field' => 1, # this is the key
+		     'tags' => 'node_type_id KEY '
+		 },
 
+		 {
+		     'col_num' => 2,
+		     'uniqid' => 'node_type_code',
+		     'name' => 'node_type_code',
+		     'datatype' => 'name',
+		     'units' => 'name',
+		     'tags' => 'node_type_code'
+		 },
+
+		 {
+		     'col_num' => 3,
+		     'uniqid' => 'node_type_class',
+		     'name' => 'node_type_class',
+		     'datatype' => 'class name',
+		     'units' => 'class',
+		     'tags' => 'node_type_class'
+		 },
+		 
+		 
+		 ##enumeration_constant
+		 {
+		     'col_num' => 4,
+		     'uniqid' => 'enumeration_constant',
+		     'name' => 'enumeration_constant',
+		     'datatype' => 'int',
+		     'units' => 'int',
+		     'tags' => 'enum value'
+		 },
+		  
+		 {
+		     'col_num' => 5,
+		     'uniqid' => 'node_type_op_count',
+		     'name' => 'node_type_op_count',
+		     'datatype' => 'int',
+		     'units' => 'operand count',
+		     'tags' => 'number of operands'
+		 },
+
+		 {
+		     'col_num' => 6,
+		     'uniqid' => 'comment',
+		     'col_num' => 5,
+		     'name' => 'comment',
+		     'datatype' => 'text',
+		     'units' => 'text',
+		     'tags' => 'comment'
+		 },
+
+
+		 ],
+	     
 # 	     'ratings' => {
 # 		 'interesting' => {
 # 		     'story' => '',

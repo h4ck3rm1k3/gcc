@@ -14,37 +14,45 @@ infochimps_schema:
       role: converted
       uniqid: org.sf.introspector/h4ck3rm1k3
       url: http://www.linkedin.com/in/jamesmikedupont
+  data_key: node_type_id
   fields:
-    - datatype: text
-      name: comment
-      tags: comment
-      uniqid: comment
-      units: text
-    - datatype: int
-      name: enumeration_constant
-      tags: enum value
-      uniqid: enumeration_constant
-      units: int
-    - datatype: class name
-      name: node_type_class
-      tags: node_type_class
-      uniqid: node_type_class
-      units: class
-    - datatype: name
+    - col_num: 1
+      datatype: name
+      key_field: 1
+      name: node_type_id
+      tags: 'node_type_id KEY '
+      uniqid: node_type_id
+      units: name
+    - col_num: 2
+      datatype: name
       name: node_type_code
       tags: node_type_code
       uniqid: node_type_code
       units: name
-    - datatype: name
-      name: node_type_id
-      tags: node_type_id
-      uniqid: node_type_id
-      units: name
-    - datatype: int
+    - col_num: 3
+      datatype: class name
+      name: node_type_class
+      tags: node_type_class
+      uniqid: node_type_class
+      units: class
+    - col_num: 4
+      datatype: int
+      name: enumeration_constant
+      tags: enum value
+      uniqid: enumeration_constant
+      units: int
+    - col_num: 5
+      datatype: int
       name: node_type_op_count
       tags: number of operands
       uniqid: node_type_op_count
       units: operand count
+    - col_num: 5
+      datatype: text
+      name: comment
+      tags: comment
+      uniqid: comment
+      units: text
   formats:
     yaml: {}
   name: GCC Introspector Node Types dataset
