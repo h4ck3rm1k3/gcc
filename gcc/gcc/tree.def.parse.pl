@@ -8,12 +8,135 @@ use constant COMMENT_END =>COMMENT_BEG+1;
 use constant DEFINED     =>COMMENT_END+1;
 use constant CONTINUE    =>DEFINED +1;
 
+our $enumeration_constant=0; #  By default, the first enumeration-constant is associated with the value 0
 our $state=0;
 our $save="";
 our $comment = ""; #save the last comment seen
 
+# schema is the global hash of all data
+# so that we can dump it all at once
+our $schema = 
+
+     {
+	 'infochimps_schema' => {
+	     'name' => 'GCC Introspector Node Types dataset',
+	     'collection' => 'Introspector Abstract Tree Definitions from Compilers',
+	     'tags' => 'gcc gnu compiler "gnu compiler collection" tree introspector tree.def treenodes ast node type ',
+	     'formats' => {
+		 'yaml' => {}
+	     },
+	     'contributors' => [
+		 {
+		     'desc' => '',
+		     'uniqid' => 'gcc.gnu.org/source/gcc/gcc/tree.def',
+		     'url' => 'http://github.com/h4ck3rm1k3/gcc/blob/898602f91e4b37358dfe27f5522f3905e463b5fa/gcc/gcc/tree.def',
+		     'name' => 'GccCompilerAuthors',
+		     'role' => 'source',
+		     'cite' => 'GCC Compiler Authors,"http://gcc.gnu.org":http://gcc.gnu.org'
+		 },
+		 {
+		     'uniqid' => 'org.sf.introspector/h4ck3rm1k3',
+		     'url' => 'http://www.linkedin.com/in/jamesmikedupont',
+		     'name' => 'James Michael DuPont',
+		     'role' => 'converted'
+		 }
+                                                       ],
+                                     
+	     'fields' => [
+    {
+	'uniqid' => 'comment',
+	'name' => 'comment',
+	'datatype' => 'text',
+	'units' => 'text',
+	'tags' => 'comment'
+    },
+    
+    ##enumeration_constant
+    {
+	'uniqid' => 'enumeration_constant',
+	'name' => 'enumeration_constant',
+	'datatype' => 'int',
+	'units' => 'int',
+	'tags' => 'enum value'
+    },
+    
+
+    {
+	'uniqid' => 'node_type_class',
+	'name' => 'node_type_class',
+                                                     'datatype' => 'class name',
+                                                     'units' => 'class',
+                                                     'tags' => 'node_type_class'
+                                                   },
+                                                   {
+                                                     'uniqid' => 'node_type_code',
+                                                     'name' => 'node_type_code',
+                                                     'datatype' => 'name',
+                                                     'units' => 'name',
+                                                     'tags' => 'node_type_code'
+                                                   },
+                                                   {
+                                                     'uniqid' => 'node_type_id',
+                                                     'name' => 'node_type_id',
+                                                     'datatype' => 'name',
+                                                     'units' => 'name',
+                                                     'tags' => 'node_type_id'
+                                                   },
+                                                   {
+                                                     'uniqid' => 'node_type_op_count',
+                                                     'name' => 'node_type_op_count',
+                                                     'datatype' => 'int',
+                                                     'units' => 'operand count',
+                                                     'tags' => 'number of operands'
+                                                   }
+                                                 ],
+
+# 	     'ratings' => {
+# 		 'interesting' => {
+# 		     'story' => '',
+# 		     'by' => 'initial',
+# 		     'rating' => '3'
+# 		 },
+# 			 'comprehensive' => {
+# 			     'story' => '',
+# 			     'by' => 'initial',
+# 			     'rating' => '3'
+# 		     },
+# 				 'authoritative' => {
+# 				     'story' => '',
+# 				     'by' => 'initial',
+# 				     'rating' => '3'
+# 			     },
+# 					 'accurate' => {
+# 					     'story' => 'These files have not been checked for conversion errors.',
+# 					     'by' => 'initial',
+# 					     'rating' => '3'
+# 				     }
+# 	     },
+
+
+                                     'notes' => {
+                                                  'rights' => 'The data is derived from the GCC Compiler collection and provided under
+the same licenses as the compiler itself. GPLv3',
+                                                  'usage' => 'We want to have an RDF/OWL ontology for this
+',
+                                                  'collection_desc' => 'The compilers have many different abstract syntax trees. 
+We want to catalog them',
+                                                  'desc' => 'For each tree node type defined we have a row.
+There are more subclasses and class relationships not shown here yet.
+We want to create a class for each codepath in the compiler'
+                                                },
+                                     'uniqid' => 'GnuGccIntrospectorTreeDefinitionsNodeTypes',
+                                     'coll_tags' => 'Compiler abstract tree definitions ',
+                                     'coll_uniqid' => 'IntrospectorAbstractTreeDefinitionsFromCompilers'
+                                   }
+     }
+    ;
+
+
 sub Print 
 {
+    # just ignore the debug prints
 }
 
 sub State
@@ -32,6 +155,7 @@ sub StateIs
 	return 1;
     }
 }
+
 
 # emit the current line
 sub Emit
@@ -76,11 +200,14 @@ sub Emit
 		node_type_code     => $node_type_code,
 		node_type_class    => $node_type_class ,
 		node_type_op_count => $node_type_op_count,
-		comment            => $comment
+		comment            => $comment,
+		enumeration_constant => $enumeration_constant++
 	    };
 
+	$schema->{node_type_id}->{$node_type_id}=$node_type;
+
 	    
-	    print Dump($node_type) . "\n";
+#	    print Dump($node_type) . "\n";
 
 	    State(COMMENT_BEG);
 	    $save="";
@@ -210,3 +337,7 @@ while (<>)
 	}
     }
 }
+
+
+
+print Dump($schema) . "\n";

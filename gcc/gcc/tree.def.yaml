@@ -1,245 +1,311 @@
 ---
-comment: These nodes contain an array of tree nodes.
-node_type_class: tcc_exceptional
-node_type_code: tree_vec
-node_type_id: TREE_VEC
-node_type_op_count: 0
-
----
-comment: Array types in C or Pascal
-node_type_class: tcc_type
-node_type_code: array_type
-node_type_id: ARRAY_TYPE
-node_type_op_count: 0
-
----
-comment: The void type in C
-node_type_class: tcc_type
-node_type_code: void_type
-node_type_id: VOID_TYPE
-node_type_op_count: 0
-
----
-comment: Contents are in TREE_REAL_CST field.
-node_type_class: tcc_constant
-node_type_code: real_cst
-node_type_id: REAL_CST
-node_type_op_count: 0
-
----
-comment: Contents are in TREE_FIXED_CST field.
-node_type_class: tcc_constant
-node_type_code: fixed_cst
-node_type_id: FIXED_CST
-node_type_op_count: 0
-
----
-comment: Contents are in TREE_VECTOR_CST_ELTS field.
-node_type_class: tcc_constant
-node_type_code: vector_cst
-node_type_id: VECTOR_CST
-node_type_op_count: 0
-
----
-comment: Contents are TREE_STRING_LENGTH and the actual contents of the string.
-node_type_class: tcc_constant
-node_type_code: string_cst
-node_type_id: STRING_CST
-node_type_op_count: 0
-
----
-comment: "C unary `*' or Pascal `^'.  One operand, an expression for a pointer."
-node_type_class: tcc_reference
-node_type_code: indirect_ref
-node_type_id: INDIRECT_REF
-node_type_op_count: 1
-
----
-comment: The exception object from the runtime.
-node_type_class: tcc_expression
-node_type_code: exc_ptr_expr
-node_type_id: EXC_PTR_EXPR
-node_type_op_count: 0
-
----
-comment: The filter object from the runtime.
-node_type_class: tcc_expression
-node_type_code: filter_expr
-node_type_id: FILTER_EXPR
-node_type_op_count: 0
-
----
-comment: 'Assignment expression.  Operand 0 is the what to set; 1, the new value.'
-node_type_class: tcc_expression
-node_type_code: modify_expr
-node_type_id: MODIFY_EXPR
-node_type_op_count: 2
-
----
-comment: Simple arithmetic.
-node_type_class: tcc_binary
-node_type_code: plus_expr
-node_type_id: PLUS_EXPR
-node_type_op_count: 2
-
----
-comment: Division for integer result that rounds the quotient toward zero.
-node_type_class: tcc_binary
-node_type_code: trunc_div_expr
-node_type_id: TRUNC_DIV_EXPR
-node_type_op_count: 2
-
----
-comment: Division for integer result that rounds the quotient toward infinity.
-node_type_class: tcc_binary
-node_type_code: ceil_div_expr
-node_type_id: CEIL_DIV_EXPR
-node_type_op_count: 2
-
----
-comment: Division for integer result that rounds toward minus infinity.
-node_type_class: tcc_binary
-node_type_code: floor_div_expr
-node_type_id: FLOOR_DIV_EXPR
-node_type_op_count: 2
-
----
-comment: Division for integer result that rounds toward nearest integer.
-node_type_class: tcc_binary
-node_type_code: round_div_expr
-node_type_id: ROUND_DIV_EXPR
-node_type_op_count: 2
-
----
-comment: Four kinds of remainder that go with the four kinds of division.
-node_type_class: tcc_binary
-node_type_code: trunc_mod_expr
-node_type_id: TRUNC_MOD_EXPR
-node_type_op_count: 2
-
----
-comment: Division for real result.
-node_type_class: tcc_binary
-node_type_code: rdiv_expr
-node_type_id: RDIV_EXPR
-node_type_op_count: 2
-
----
-comment: Conversion of real to fixed point by truncation.
-node_type_class: tcc_unary
-node_type_code: fix_trunc_expr
-node_type_id: FIX_TRUNC_EXPR
-node_type_op_count: 1
-
----
-comment: Conversion of an integer to a real.
-node_type_class: tcc_unary
-node_type_code: float_expr
-node_type_id: FLOAT_EXPR
-node_type_op_count: 1
-
----
-comment: Unary negation.
-node_type_class: tcc_unary
-node_type_code: negate_expr
-node_type_id: NEGATE_EXPR
-node_type_op_count: 1
-
----
-comment: Bitwise operations.  Operands have same mode as result.
-node_type_class: tcc_binary
-node_type_code: bit_ior_expr
-node_type_id: BIT_IOR_EXPR
-node_type_op_count: 2
-
----
-comment: Additional relational operators for floating point unordered.
-node_type_class: tcc_comparison
-node_type_code: unordered_expr
-node_type_id: UNORDERED_EXPR
-node_type_op_count: 2
-
----
-comment: These are equivalent to unordered or ...
-node_type_class: tcc_comparison
-node_type_code: unlt_expr
-node_type_id: UNLT_EXPR
-node_type_op_count: 2
-
----
-comment: This is the reverse of uneq_expr.
-node_type_class: tcc_comparison
-node_type_code: ltgt_expr
-node_type_id: LTGT_EXPR
-node_type_op_count: 2
-
----
-comment: Represents a conversion expected to require no code to be generated.
-node_type_class: tcc_unary
-node_type_code: nop_expr
-node_type_id: NOP_EXPR
-node_type_op_count: 1
-
----
-comment: 'Value is same as argument, but guaranteed not an lvalue.'
-node_type_class: tcc_unary
-node_type_code: non_lvalue_expr
-node_type_id: NON_LVALUE_EXPR
-node_type_op_count: 1
-
----
-comment: Complex conjugate of operand.  Used only on complex types.
-node_type_class: tcc_unary
-node_type_code: conj_expr
-node_type_id: CONJ_EXPR
-node_type_op_count: 1
-
----
-comment: Used to implement `va_arg'.
-node_type_class: tcc_expression
-node_type_code: va_arg_expr
-node_type_id: VA_ARG_EXPR
-node_type_op_count: 1
-
----
-comment: Used to represent a local declaration. The operand is DECL_EXPR_DECL.
-node_type_class: tcc_statement
-node_type_code: decl_expr
-node_type_id: DECL_EXPR
-node_type_op_count: 1
-
----
-comment: OpenMP clauses.
-node_type_class: tcc_exceptional
-node_type_code: omp_clause
-node_type_id: OMP_CLAUSE
-node_type_op_count: 0
-
----
-comment: Extract even/odd fields from vectors.
-node_type_class: tcc_binary
-node_type_code: vec_extracteven_expr
-node_type_id: VEC_EXTRACT_EVEN_EXPR
-node_type_op_count: 2
-
----
-comment: Merge input vectors interleaving their fields.
-node_type_class: tcc_binary
-node_type_code: vec_interleavehigh_expr
-node_type_id: VEC_INTERLEAVE_HIGH_EXPR
-node_type_op_count: 2
-
----
-comment: OPTIMIZATION_NODE.  Node to store the optimization options.
-node_type_class: tcc_exceptional
-node_type_code: optimization_node
-node_type_id: OPTIMIZATION_NODE
-node_type_op_count: 0
-
----
-comment: TARGET_OPTION_NODE.  Node to store the target specific options.
-node_type_class: tcc_exceptional
-node_type_code: target_option_node
-node_type_id: TARGET_OPTION_NODE
-node_type_op_count: 0
+infochimps_schema:
+  coll_tags: 'Compiler abstract tree definitions '
+  coll_uniqid: IntrospectorAbstractTreeDefinitionsFromCompilers
+  collection: Introspector Abstract Tree Definitions from Compilers
+  contributors:
+    - cite: 'GCC Compiler Authors,"http://gcc.gnu.org":http://gcc.gnu.org'
+      desc: ''
+      name: GccCompilerAuthors
+      role: source
+      uniqid: gcc.gnu.org/source/gcc/gcc/tree.def
+      url: http://github.com/h4ck3rm1k3/gcc/blob/898602f91e4b37358dfe27f5522f3905e463b5fa/gcc/gcc/tree.def
+    - name: James Michael DuPont
+      role: converted
+      uniqid: org.sf.introspector/h4ck3rm1k3
+      url: http://www.linkedin.com/in/jamesmikedupont
+  fields:
+    - datatype: text
+      name: comment
+      tags: comment
+      uniqid: comment
+      units: text
+    - datatype: int
+      name: enumeration_constant
+      tags: enum value
+      uniqid: enumeration_constant
+      units: int
+    - datatype: class name
+      name: node_type_class
+      tags: node_type_class
+      uniqid: node_type_class
+      units: class
+    - datatype: name
+      name: node_type_code
+      tags: node_type_code
+      uniqid: node_type_code
+      units: name
+    - datatype: name
+      name: node_type_id
+      tags: node_type_id
+      uniqid: node_type_id
+      units: name
+    - datatype: int
+      name: node_type_op_count
+      tags: number of operands
+      uniqid: node_type_op_count
+      units: operand count
+  formats:
+    yaml: {}
+  name: GCC Introspector Node Types dataset
+  notes:
+    collection_desc: |-
+      The compilers have many different abstract syntax trees. 
+      We want to catalog them
+    desc: |-
+      For each tree node type defined we have a row.
+      There are more subclasses and class relationships not shown here yet.
+      We want to create a class for each codepath in the compiler
+    rights: |-
+      The data is derived from the GCC Compiler collection and provided under
+      the same licenses as the compiler itself. GPLv3
+    usage: "We want to have an RDF/OWL ontology for this\n"
+  tags: 'gcc gnu compiler "gnu compiler collection" tree introspector tree.def treenodes ast node type '
+  uniqid: GnuGccIntrospectorTreeDefinitionsNodeTypes
+node_type_id:
+  ARRAY_TYPE:
+    comment: Array types in C or Pascal
+    enumeration_constant: 1
+    node_type_class: tcc_type
+    node_type_code: array_type
+    node_type_id: ARRAY_TYPE
+    node_type_op_count: 0
+  BIT_IOR_EXPR:
+    comment: Bitwise operations.  Operands have same mode as result.
+    enumeration_constant: 21
+    node_type_class: tcc_binary
+    node_type_code: bit_ior_expr
+    node_type_id: BIT_IOR_EXPR
+    node_type_op_count: 2
+  CEIL_DIV_EXPR:
+    comment: Division for integer result that rounds the quotient toward infinity.
+    enumeration_constant: 13
+    node_type_class: tcc_binary
+    node_type_code: ceil_div_expr
+    node_type_id: CEIL_DIV_EXPR
+    node_type_op_count: 2
+  CONJ_EXPR:
+    comment: Complex conjugate of operand.  Used only on complex types.
+    enumeration_constant: 27
+    node_type_class: tcc_unary
+    node_type_code: conj_expr
+    node_type_id: CONJ_EXPR
+    node_type_op_count: 1
+  DECL_EXPR:
+    comment: Used to represent a local declaration. The operand is DECL_EXPR_DECL.
+    enumeration_constant: 29
+    node_type_class: tcc_statement
+    node_type_code: decl_expr
+    node_type_id: DECL_EXPR
+    node_type_op_count: 1
+  EXC_PTR_EXPR:
+    comment: The exception object from the runtime.
+    enumeration_constant: 8
+    node_type_class: tcc_expression
+    node_type_code: exc_ptr_expr
+    node_type_id: EXC_PTR_EXPR
+    node_type_op_count: 0
+  FILTER_EXPR:
+    comment: The filter object from the runtime.
+    enumeration_constant: 9
+    node_type_class: tcc_expression
+    node_type_code: filter_expr
+    node_type_id: FILTER_EXPR
+    node_type_op_count: 0
+  FIXED_CST:
+    comment: Contents are in TREE_FIXED_CST field.
+    enumeration_constant: 4
+    node_type_class: tcc_constant
+    node_type_code: fixed_cst
+    node_type_id: FIXED_CST
+    node_type_op_count: 0
+  FIX_TRUNC_EXPR:
+    comment: Conversion of real to fixed point by truncation.
+    enumeration_constant: 18
+    node_type_class: tcc_unary
+    node_type_code: fix_trunc_expr
+    node_type_id: FIX_TRUNC_EXPR
+    node_type_op_count: 1
+  FLOAT_EXPR:
+    comment: Conversion of an integer to a real.
+    enumeration_constant: 19
+    node_type_class: tcc_unary
+    node_type_code: float_expr
+    node_type_id: FLOAT_EXPR
+    node_type_op_count: 1
+  FLOOR_DIV_EXPR:
+    comment: Division for integer result that rounds toward minus infinity.
+    enumeration_constant: 14
+    node_type_class: tcc_binary
+    node_type_code: floor_div_expr
+    node_type_id: FLOOR_DIV_EXPR
+    node_type_op_count: 2
+  INDIRECT_REF:
+    comment: "C unary `*' or Pascal `^'.  One operand, an expression for a pointer."
+    enumeration_constant: 7
+    node_type_class: tcc_reference
+    node_type_code: indirect_ref
+    node_type_id: INDIRECT_REF
+    node_type_op_count: 1
+  LTGT_EXPR:
+    comment: This is the reverse of uneq_expr.
+    enumeration_constant: 24
+    node_type_class: tcc_comparison
+    node_type_code: ltgt_expr
+    node_type_id: LTGT_EXPR
+    node_type_op_count: 2
+  MODIFY_EXPR:
+    comment: 'Assignment expression.  Operand 0 is the what to set; 1, the new value.'
+    enumeration_constant: 10
+    node_type_class: tcc_expression
+    node_type_code: modify_expr
+    node_type_id: MODIFY_EXPR
+    node_type_op_count: 2
+  NEGATE_EXPR:
+    comment: Unary negation.
+    enumeration_constant: 20
+    node_type_class: tcc_unary
+    node_type_code: negate_expr
+    node_type_id: NEGATE_EXPR
+    node_type_op_count: 1
+  NON_LVALUE_EXPR:
+    comment: 'Value is same as argument, but guaranteed not an lvalue.'
+    enumeration_constant: 26
+    node_type_class: tcc_unary
+    node_type_code: non_lvalue_expr
+    node_type_id: NON_LVALUE_EXPR
+    node_type_op_count: 1
+  NOP_EXPR:
+    comment: Represents a conversion expected to require no code to be generated.
+    enumeration_constant: 25
+    node_type_class: tcc_unary
+    node_type_code: nop_expr
+    node_type_id: NOP_EXPR
+    node_type_op_count: 1
+  OMP_CLAUSE:
+    comment: OpenMP clauses.
+    enumeration_constant: 30
+    node_type_class: tcc_exceptional
+    node_type_code: omp_clause
+    node_type_id: OMP_CLAUSE
+    node_type_op_count: 0
+  OPTIMIZATION_NODE:
+    comment: OPTIMIZATION_NODE.  Node to store the optimization options.
+    enumeration_constant: 33
+    node_type_class: tcc_exceptional
+    node_type_code: optimization_node
+    node_type_id: OPTIMIZATION_NODE
+    node_type_op_count: 0
+  PLUS_EXPR:
+    comment: Simple arithmetic.
+    enumeration_constant: 11
+    node_type_class: tcc_binary
+    node_type_code: plus_expr
+    node_type_id: PLUS_EXPR
+    node_type_op_count: 2
+  RDIV_EXPR:
+    comment: Division for real result.
+    enumeration_constant: 17
+    node_type_class: tcc_binary
+    node_type_code: rdiv_expr
+    node_type_id: RDIV_EXPR
+    node_type_op_count: 2
+  REAL_CST:
+    comment: Contents are in TREE_REAL_CST field.
+    enumeration_constant: 3
+    node_type_class: tcc_constant
+    node_type_code: real_cst
+    node_type_id: REAL_CST
+    node_type_op_count: 0
+  ROUND_DIV_EXPR:
+    comment: Division for integer result that rounds toward nearest integer.
+    enumeration_constant: 15
+    node_type_class: tcc_binary
+    node_type_code: round_div_expr
+    node_type_id: ROUND_DIV_EXPR
+    node_type_op_count: 2
+  STRING_CST:
+    comment: Contents are TREE_STRING_LENGTH and the actual contents of the string.
+    enumeration_constant: 6
+    node_type_class: tcc_constant
+    node_type_code: string_cst
+    node_type_id: STRING_CST
+    node_type_op_count: 0
+  TARGET_OPTION_NODE:
+    comment: TARGET_OPTION_NODE.  Node to store the target specific options.
+    enumeration_constant: 34
+    node_type_class: tcc_exceptional
+    node_type_code: target_option_node
+    node_type_id: TARGET_OPTION_NODE
+    node_type_op_count: 0
+  TREE_VEC:
+    comment: These nodes contain an array of tree nodes.
+    enumeration_constant: 0
+    node_type_class: tcc_exceptional
+    node_type_code: tree_vec
+    node_type_id: TREE_VEC
+    node_type_op_count: 0
+  TRUNC_DIV_EXPR:
+    comment: Division for integer result that rounds the quotient toward zero.
+    enumeration_constant: 12
+    node_type_class: tcc_binary
+    node_type_code: trunc_div_expr
+    node_type_id: TRUNC_DIV_EXPR
+    node_type_op_count: 2
+  TRUNC_MOD_EXPR:
+    comment: Four kinds of remainder that go with the four kinds of division.
+    enumeration_constant: 16
+    node_type_class: tcc_binary
+    node_type_code: trunc_mod_expr
+    node_type_id: TRUNC_MOD_EXPR
+    node_type_op_count: 2
+  UNLT_EXPR:
+    comment: These are equivalent to unordered or ...
+    enumeration_constant: 23
+    node_type_class: tcc_comparison
+    node_type_code: unlt_expr
+    node_type_id: UNLT_EXPR
+    node_type_op_count: 2
+  UNORDERED_EXPR:
+    comment: Additional relational operators for floating point unordered.
+    enumeration_constant: 22
+    node_type_class: tcc_comparison
+    node_type_code: unordered_expr
+    node_type_id: UNORDERED_EXPR
+    node_type_op_count: 2
+  VA_ARG_EXPR:
+    comment: Used to implement `va_arg'.
+    enumeration_constant: 28
+    node_type_class: tcc_expression
+    node_type_code: va_arg_expr
+    node_type_id: VA_ARG_EXPR
+    node_type_op_count: 1
+  VECTOR_CST:
+    comment: Contents are in TREE_VECTOR_CST_ELTS field.
+    enumeration_constant: 5
+    node_type_class: tcc_constant
+    node_type_code: vector_cst
+    node_type_id: VECTOR_CST
+    node_type_op_count: 0
+  VEC_EXTRACT_EVEN_EXPR:
+    comment: Extract even/odd fields from vectors.
+    enumeration_constant: 31
+    node_type_class: tcc_binary
+    node_type_code: vec_extracteven_expr
+    node_type_id: VEC_EXTRACT_EVEN_EXPR
+    node_type_op_count: 2
+  VEC_INTERLEAVE_HIGH_EXPR:
+    comment: Merge input vectors interleaving their fields.
+    enumeration_constant: 32
+    node_type_class: tcc_binary
+    node_type_code: vec_interleavehigh_expr
+    node_type_id: VEC_INTERLEAVE_HIGH_EXPR
+    node_type_op_count: 2
+  VOID_TYPE:
+    comment: The void type in C
+    enumeration_constant: 2
+    node_type_class: tcc_type
+    node_type_code: void_type
+    node_type_id: VOID_TYPE
+    node_type_op_count: 0
 
