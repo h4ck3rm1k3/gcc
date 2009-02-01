@@ -1,61 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:vs="http://www.w3.org/2003/06/sw-vocab-status/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/">
-  <owl:Ontology rdf:about="http://github.com/h4ck3rm1k3/gcc/blob/introspector_branch/gcc/gcc/grddl/swig_tree.h.enum.tree_code_class.owl" dc:title="gcc tree.h enum tree_code_class  From Swig Extracted Ontology (GCCTTCS - FSEO) vocabulary" dc:description="The (GCCTTCS - FSEO) RDF vocabulary, described using W3C RDF Schema and the Web Ontology Language." dc:date="$Date: 2009-02-01 17:08:22.222879163+01:00 $">
-    <owl:Class rdf:about="http://github.com/h4ck3rm1k3/gcc/blob/introspector_branch/gcc/gcc/grddl/swig_tree.h.enum.tree_code_class.owl#enum_tree_code_class" rdfs:label="tree_code_class" rdfs:comment="An enum of type tree_code_class" vs:term_status="experimental"/>
-    <owl:Class rdf:about="http://github.com/h4ck3rm1k3/gcc/blob/introspector_branch/gcc/gcc/grddl/swig_tree.h.enum.tree_code_class.owl#enum_value_tcc_exceptional" rdfs:label="tcc_exceptional" rdfs:comment="An value of type tcc_exceptional" vs:term_status="experimental">
-      <rdfs:subClassOf>
-        <owl:Class rdf:about="http://github.com/h4ck3rm1k3/gcc/blob/introspector_branch/gcc/gcc/grddl/swig_tree.h.enum.tree_code_class.owl#enum_tree_code_class"/>
-      </rdfs:subClassOf>
-    </owl:Class>
-    <owl:Class rdf:about="http://github.com/h4ck3rm1k3/gcc/blob/introspector_branch/gcc/gcc/grddl/swig_tree.h.enum.tree_code_class.owl#enum_value_tcc_constant" rdfs:label="tcc_constant" rdfs:comment="An value of type tcc_constant" vs:term_status="experimental">
-      <rdfs:subClassOf>
-        <owl:Class rdf:about="http://github.com/h4ck3rm1k3/gcc/blob/introspector_branch/gcc/gcc/grddl/swig_tree.h.enum.tree_code_class.owl#enum_tree_code_class"/>
-      </rdfs:subClassOf>
-    </owl:Class>
-    <owl:Class rdf:about="http://github.com/h4ck3rm1k3/gcc/blob/introspector_branch/gcc/gcc/grddl/swig_tree.h.enum.tree_code_class.owl#enum_value_tcc_type" rdfs:label="tcc_type" rdfs:comment="An value of type tcc_type" vs:term_status="experimental">
-      <rdfs:subClassOf>
-        <owl:Class rdf:about="http://github.com/h4ck3rm1k3/gcc/blob/introspector_branch/gcc/gcc/grddl/swig_tree.h.enum.tree_code_class.owl#enum_tree_code_class"/>
-      </rdfs:subClassOf>
-    </owl:Class>
-    <owl:Class rdf:about="http://github.com/h4ck3rm1k3/gcc/blob/introspector_branch/gcc/gcc/grddl/swig_tree.h.enum.tree_code_class.owl#enum_value_tcc_declaration" rdfs:label="tcc_declaration" rdfs:comment="An value of type tcc_declaration" vs:term_status="experimental">
-      <rdfs:subClassOf>
-        <owl:Class rdf:about="http://github.com/h4ck3rm1k3/gcc/blob/introspector_branch/gcc/gcc/grddl/swig_tree.h.enum.tree_code_class.owl#enum_tree_code_class"/>
-      </rdfs:subClassOf>
-    </owl:Class>
-    <owl:Class rdf:about="http://github.com/h4ck3rm1k3/gcc/blob/introspector_branch/gcc/gcc/grddl/swig_tree.h.enum.tree_code_class.owl#enum_value_tcc_reference" rdfs:label="tcc_reference" rdfs:comment="An value of type tcc_reference" vs:term_status="experimental">
-      <rdfs:subClassOf>
-        <owl:Class rdf:about="http://github.com/h4ck3rm1k3/gcc/blob/introspector_branch/gcc/gcc/grddl/swig_tree.h.enum.tree_code_class.owl#enum_tree_code_class"/>
-      </rdfs:subClassOf>
-    </owl:Class>
-    <owl:Class rdf:about="http://github.com/h4ck3rm1k3/gcc/blob/introspector_branch/gcc/gcc/grddl/swig_tree.h.enum.tree_code_class.owl#enum_value_tcc_comparison" rdfs:label="tcc_comparison" rdfs:comment="An value of type tcc_comparison" vs:term_status="experimental">
-      <rdfs:subClassOf>
-        <owl:Class rdf:about="http://github.com/h4ck3rm1k3/gcc/blob/introspector_branch/gcc/gcc/grddl/swig_tree.h.enum.tree_code_class.owl#enum_tree_code_class"/>
-      </rdfs:subClassOf>
-    </owl:Class>
-    <owl:Class rdf:about="http://github.com/h4ck3rm1k3/gcc/blob/introspector_branch/gcc/gcc/grddl/swig_tree.h.enum.tree_code_class.owl#enum_value_tcc_unary" rdfs:label="tcc_unary" rdfs:comment="An value of type tcc_unary" vs:term_status="experimental">
-      <rdfs:subClassOf>
-        <owl:Class rdf:about="http://github.com/h4ck3rm1k3/gcc/blob/introspector_branch/gcc/gcc/grddl/swig_tree.h.enum.tree_code_class.owl#enum_tree_code_class"/>
-      </rdfs:subClassOf>
-    </owl:Class>
-    <owl:Class rdf:about="http://github.com/h4ck3rm1k3/gcc/blob/introspector_branch/gcc/gcc/grddl/swig_tree.h.enum.tree_code_class.owl#enum_value_tcc_binary" rdfs:label="tcc_binary" rdfs:comment="An value of type tcc_binary" vs:term_status="experimental">
-      <rdfs:subClassOf>
-        <owl:Class rdf:about="http://github.com/h4ck3rm1k3/gcc/blob/introspector_branch/gcc/gcc/grddl/swig_tree.h.enum.tree_code_class.owl#enum_tree_code_class"/>
-      </rdfs:subClassOf>
-    </owl:Class>
-    <owl:Class rdf:about="http://github.com/h4ck3rm1k3/gcc/blob/introspector_branch/gcc/gcc/grddl/swig_tree.h.enum.tree_code_class.owl#enum_value_tcc_statement" rdfs:label="tcc_statement" rdfs:comment="An value of type tcc_statement" vs:term_status="experimental">
-      <rdfs:subClassOf>
-        <owl:Class rdf:about="http://github.com/h4ck3rm1k3/gcc/blob/introspector_branch/gcc/gcc/grddl/swig_tree.h.enum.tree_code_class.owl#enum_tree_code_class"/>
-      </rdfs:subClassOf>
-    </owl:Class>
-    <owl:Class rdf:about="http://github.com/h4ck3rm1k3/gcc/blob/introspector_branch/gcc/gcc/grddl/swig_tree.h.enum.tree_code_class.owl#enum_value_tcc_vl_exp" rdfs:label="tcc_vl_exp" rdfs:comment="An value of type tcc_vl_exp" vs:term_status="experimental">
-      <rdfs:subClassOf>
-        <owl:Class rdf:about="http://github.com/h4ck3rm1k3/gcc/blob/introspector_branch/gcc/gcc/grddl/swig_tree.h.enum.tree_code_class.owl#enum_tree_code_class"/>
-      </rdfs:subClassOf>
-    </owl:Class>
-    <owl:Class rdf:about="http://github.com/h4ck3rm1k3/gcc/blob/introspector_branch/gcc/gcc/grddl/swig_tree.h.enum.tree_code_class.owl#enum_value_tcc_expression" rdfs:label="tcc_expression" rdfs:comment="An value of type tcc_expression" vs:term_status="experimental">
-      <rdfs:subClassOf>
-        <owl:Class rdf:about="http://github.com/h4ck3rm1k3/gcc/blob/introspector_branch/gcc/gcc/grddl/swig_tree.h.enum.tree_code_class.owl#enum_tree_code_class"/>
-      </rdfs:subClassOf>
-    </owl:Class>
-  </owl:Ontology>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:vs="http://www.w3.org/2003/06/sw-vocab-status/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xml:base="http://github.com/h4ck3rm1k3/gcc/blob/introspector_branch/gcc/gcc/grddl/swig_tree.h.enum.tree_code_class.owl">
+  <owl:Ontology rdf:about="" dc:title="gcc tree.h enum tree_code_class  From Swig Extracted Ontology (GCCTTCS - FSEO) vocabulary" dc:description="The (GCCTTCS - FSEO) RDF vocabulary, described using W3C RDF Schema and the Web Ontology Language." dc:date="$Date: 2009-02-01 17:49:17.700439434+01:00 $"/>
+  <owl:Class rdf:about="#enum">
+    <owl:disjointWith rdf:resource="http://www.w3.org/2002/07/owl#Nothing"/>
+  </owl:Class>
+  <owl:Class rdf:about="#enum_tree_code_class" rdfs:comment="An enum of type tree_code_class">
+    <rdfs:subClassOf rdf:resource="#enum"/>
+    <owl:disjointWith rdf:resource="http://www.w3.org/2002/07/owl#Nothing"/>
+  </owl:Class>
+  <owl:Class rdf:about="#enum_value_tcc_exceptional" rdfs:comment="An value of type tcc_exceptional">
+    <rdfs:subClassOf rdf:resource="#enum_tree_code_class"/>
+  </owl:Class>
+  <owl:Class rdf:about="#enum_value_tcc_constant" rdfs:comment="An value of type tcc_constant">
+    <rdfs:subClassOf rdf:resource="#enum_tree_code_class"/>
+  </owl:Class>
+  <owl:Class rdf:about="#enum_value_tcc_type" rdfs:comment="An value of type tcc_type">
+    <rdfs:subClassOf rdf:resource="#enum_tree_code_class"/>
+  </owl:Class>
+  <owl:Class rdf:about="#enum_value_tcc_declaration" rdfs:comment="An value of type tcc_declaration">
+    <rdfs:subClassOf rdf:resource="#enum_tree_code_class"/>
+  </owl:Class>
+  <owl:Class rdf:about="#enum_value_tcc_reference" rdfs:comment="An value of type tcc_reference">
+    <rdfs:subClassOf rdf:resource="#enum_tree_code_class"/>
+  </owl:Class>
+  <owl:Class rdf:about="#enum_value_tcc_comparison" rdfs:comment="An value of type tcc_comparison">
+    <rdfs:subClassOf rdf:resource="#enum_tree_code_class"/>
+  </owl:Class>
+  <owl:Class rdf:about="#enum_value_tcc_unary" rdfs:comment="An value of type tcc_unary">
+    <rdfs:subClassOf rdf:resource="#enum_tree_code_class"/>
+  </owl:Class>
+  <owl:Class rdf:about="#enum_value_tcc_binary" rdfs:comment="An value of type tcc_binary">
+    <rdfs:subClassOf rdf:resource="#enum_tree_code_class"/>
+  </owl:Class>
+  <owl:Class rdf:about="#enum_value_tcc_statement" rdfs:comment="An value of type tcc_statement">
+    <rdfs:subClassOf rdf:resource="#enum_tree_code_class"/>
+  </owl:Class>
+  <owl:Class rdf:about="#enum_value_tcc_vl_exp" rdfs:comment="An value of type tcc_vl_exp">
+    <rdfs:subClassOf rdf:resource="#enum_tree_code_class"/>
+  </owl:Class>
+  <owl:Class rdf:about="#enum_value_tcc_expression" rdfs:comment="An value of type tcc_expression">
+    <rdfs:subClassOf rdf:resource="#enum_tree_code_class"/>
+  </owl:Class>
 </rdf:RDF>
