@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <owl:Ontology rdf:about="http://github.com/h4ck3rm1k3/gcc/blob/6016b34cf3bd51bd3ca9119ada10e507b6507c2f/gcc/gcc/grddl/swig_tree.h.enum.tree_code_class.owl" dc:title="gcc tree.h enum tree_code_class  From Swig Extracted Ontology (GCCTTCS - FSEO) vocabulary" dc:description="The (GCCTTCS - FSEO) RDF vocabulary, described using W3C RDF Schema and the Web Ontology Language." dc:date="$Date: 2009-02-01 12:00:19.749292304+01:00 $">
+    <rdf:enum rdf:about="tree_code_class">
+      <rdf:Description rdf:about="enumitem">
+        <rdf:Description rdf:about="tcc_exceptional"/>
+      </rdf:Description>
+      <rdf:Description rdf:about="enumitem">
+        <rdf:Description rdf:about="tcc_constant"/>
+      </rdf:Description>
+      <rdf:Description rdf:about="enumitem">
+        <rdf:Description rdf:about="tcc_type"/>
+      </rdf:Description>
+      <rdf:Description rdf:about="enumitem">
+        <rdf:Description rdf:about="tcc_declaration"/>
+      </rdf:Description>
+      <rdf:Description rdf:about="enumitem">
+        <rdf:Description rdf:about="tcc_reference"/>
+      </rdf:Description>
+      <rdf:Description rdf:about="enumitem">
+        <rdf:Description rdf:about="tcc_comparison"/>
+      </rdf:Description>
+      <rdf:Description rdf:about="enumitem">
+        <rdf:Description rdf:about="tcc_unary"/>
+      </rdf:Description>
+      <rdf:Description rdf:about="enumitem">
+        <rdf:Description rdf:about="tcc_binary"/>
+      </rdf:Description>
+      <rdf:Description rdf:about="enumitem">
+        <rdf:Description rdf:about="tcc_statement"/>
+      </rdf:Description>
+      <rdf:Description rdf:about="enumitem">
+        <rdf:Description rdf:about="tcc_vl_exp"/>
+      </rdf:Description>
+      <rdf:Description rdf:about="enumitem">
+        <rdf:Description rdf:about="tcc_expression"/>
+      </rdf:Description>
+    </rdf:enum>
+  </owl:Ontology>
+</rdf:RDF>
