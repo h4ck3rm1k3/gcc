@@ -6,9 +6,9 @@
   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
   xmlns:foaf="http://xmlns.com/foaf/0.1/"
   xmlns:owl="http://www.w3.org/2002/07/owl#"
-
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xmlns:vs="http://www.w3.org/2003/06/sw-vocab-status/ns#"
   xmlns:dc="http://purl.org/dc/elements/1.1/"
-
   exclude-result-prefixes="h">
 
 <xsl:param name="ontology_uri"></xsl:param>
@@ -62,10 +62,18 @@ top/attributelist
 
     <xsl:variable name="enum_name" 
       select="./attributelist/attribute[@name='name']/@value"/>
-    
-    <rdf:enum rdf:about="{$enum_name}">
-      <xsl:apply-templates/>
-    </rdf:enum>
+
+
+    <owl:Class 
+      rdf:about="{$ontology_uri}#enum_{$enum_name}" 
+      rdfs:label="{$enum_name}" 
+      rdfs:comment="An enum of type {$enum_name}"
+      vs:term_status="experimental"
+>
+
+    </owl:Class>
+
+    <xsl:apply-templates/>
     
   </xsl:template>
 
@@ -73,9 +81,7 @@ top/attributelist
 
   <xsl:template match="enumitem">
     <xsl:variable name="subject" select='name(.)' />
-    <rdf:Description rdf:about="{$subject}" >
     <xsl:apply-templates/>
-    </rdf:Description>
   </xsl:template>
 
   <xsl:template match="enumitem/attributelist">
@@ -84,8 +90,33 @@ top/attributelist
 
   <xsl:template match="enumitem/attributelist/attribute[@name='name']">
     <xsl:variable name="enum_name" select='@value' />
+
+    <!--
     <rdf:Description rdf:about="{$enum_name}">
     </rdf:Description>
+-->
+
+  <xsl:variable name="parent_enum_name" 
+    select="../../../attributelist/attribute[@name='name']/@value"/>
+
+
+
+    <owl:Class 
+      rdf:about="{$ontology_uri}#enum_value_{$enum_name}" 
+      rdfs:label="{$enum_name}" 
+      rdfs:comment="An value of type {$enum_name}"
+      vs:term_status="experimental"
+      >
+
+
+      <rdfs:subClassOf>
+        <owl:Class rdf:about="{$ontology_uri}#enum_{$parent_enum_name}"/>
+      </rdfs:subClassOf>
+      
+
+
+    </owl:Class>
+
   </xsl:template>
 
 
