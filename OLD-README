@@ -1,0 +1,22 @@
+Hello world.
+this is my first git repository.
+will be adding the gcc mainline and maintaining it here as a git repository.
+purpose is to make a gcc that can run and compile out of the box.
+based on that, will be adding the introspector patches.
+
+I have done now the following: 
+svn checkout svn://gcc.gnu.org/svn/gcc/trunk gcc
+this produces :
+/home_data1/gcc/newsvn
+
+and from this git dir :
+svn export /home_data1/gcc/newsvn
+of the checkout dir.
+
+then I did an git add gcc
+and git commit
+  svn export /home_data1/gcc/newsvn/gcc
+  git add gcc/
+  git commit -m "first try"
+  git push git@github.com:h4ck3rm1k3/gcc.git
+ 
