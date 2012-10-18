@@ -1,22 +1,17 @@
-Hello world.
-this is my first git repository.
-will be adding the gcc mainline and maintaining it here as a git repository.
-purpose is to make a gcc that can run and compile out of the box.
-based on that, will be adding the introspector patches.
+This directory contains the GNU Compiler Collection (GCC).
 
-I have done now the following: 
-svn checkout svn://gcc.gnu.org/svn/gcc/trunk gcc
-this produces :
-/home_data1/gcc/newsvn
+The GNU Compiler Collection is free software.  See the file COPYING
+for copying permission.  The manuals, and some of the runtime
+libraries, are under different terms; see the individual source files
+for details.
 
-and from this git dir :
-svn export /home_data1/gcc/newsvn
-of the checkout dir.
+The directory INSTALL contains copies of the installation information
+as HTML and plain text.  The source of this information is
+gcc/doc/install.texi.  The installation information includes details
+of what is included in the GCC sources and what files GCC installs.
 
-then I did an git add gcc
-and git commit
-  svn export /home_data1/gcc/newsvn/gcc
-  git add gcc/
-  git commit -m "first try"
-  git push git@github.com:h4ck3rm1k3/gcc.git
- 
+See the file gcc/doc/gcc.texi (together with other files that it
+includes) for usage and porting information.  An online readable
+version of the manual is in the files gcc/doc/gcc.info*.
+
+See http://gcc.gnu.org/bugs.html for how to report bugs usefully.
