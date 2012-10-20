@@ -140,6 +140,17 @@ unpack_ts_base_value_fields (struct bitpack_d *bp, tree expr)
 }
 
 
+/* Unpack all the non-pointer fields of the TS_INT_CST structure of
+   expression EXPR from bitpack BP.  */
+
+static void
+unpack_ts_int_cst_value_fields (struct bitpack_d *bp, tree expr)
+{
+  TREE_INT_CST_LOW (expr) = (unsigned) bp_unpack_var_len_unsigned (bp);
+  TREE_INT_CST_HIGH (expr) = (unsigned) bp_unpack_var_len_int (bp);
+}
+
+
 /* Unpack all the non-pointer fields of the TS_REAL_CST structure of
    expression EXPR from bitpack BP.  */
 
@@ -416,6 +427,9 @@ unpack_value_fields (struct data_in *data_in, struct bitpack_d *bp, tree expr)
      the types and sizes of each of the fields being packed.  */
   unpack_ts_base_value_fields (bp, expr);
 
+  if (CODE_CONTAINS_STRUCT (code, TS_INT_CST))
+    unpack_ts_int_cst_value_fields (bp, expr);
+
   if (CODE_CONTAINS_STRUCT (code, TS_REAL_CST))
     unpack_ts_real_cst_value_fields (bp, expr);
 
@@ -643,9 +657,6 @@ lto_input_ts_decl_common_tree_pointers (struct lto_input_block *ib,
      for early inlining so drop it on the floor instead of ICEing in
      dwarf2out.c.  */
 
-  if (TREE_CODE (expr) == PARM_DECL)
-    TREE_CHAIN (expr) = streamer_read_chain (ib, data_in);
-
   if ((TREE_CODE (expr) == VAR_DECL
        || TREE_CODE (expr) == PARM_DECL)
       && DECL_HAS_VALUE_EXPR_P (expr))
@@ -670,7 +681,7 @@ lto_input_ts_decl_non_common_tree_pointers (struct lto_input_block *ib,
 {
   if (TREE_CODE (expr) == FUNCTION_DECL)
     {
-      DECL_ARGUMENTS (expr) = stream_read_tree (ib, data_in);
+      DECL_ARGUMENTS (expr) = streamer_read_chain (ib, data_in);
       DECL_RESULT (expr) = stream_read_tree (ib, data_in);
     }
   else if (TREE_CODE (expr) == TYPE_DECL)
@@ -1015,25 +1026,10 @@ streamer_read_tree_body (struct lto_input_block *ib, struct data_in *data_in,
 tree
 streamer_read_integer_cst (struct lto_input_block *ib, struct data_in *data_in)
 {
-  tree result, type;
-  HOST_WIDE_INT low, high;
-  bool overflow_p;
-
-  type = stream_read_tree (ib, data_in);
-  overflow_p = (streamer_read_uchar (ib) != 0);
-  low = streamer_read_uhwi (ib);
-  high = streamer_read_uhwi (ib);
-  result = build_int_cst_wide (type, low, high);
-
-  /* If the original constant had overflown, build a replica of RESULT to
-     avoid modifying the shared constant returned by build_int_cst_wide.  */
-  if (overflow_p)
-    {
-      result = copy_node (result);
-      TREE_OVERFLOW (result) = 1;
-    }
-
-  return result;
+  tree type = stream_read_tree (ib, data_in);
+  unsigned HOST_WIDE_INT low = streamer_read_uhwi (ib);
+  HOST_WIDE_INT high = streamer_read_hwi (ib);
+  return build_int_cst_wide (type, low, high);
 }
 
 

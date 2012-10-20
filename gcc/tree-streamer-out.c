@@ -112,6 +112,17 @@ pack_ts_base_value_fields (struct bitpack_d *bp, tree expr)
 }
 
 
+/* Pack all the non-pointer fields of the TS_INTEGER_CST structure of
+   expression EXPR into bitpack BP.  */
+
+static void
+pack_ts_int_cst_value_fields (struct bitpack_d *bp, tree expr)
+{
+  bp_pack_var_len_unsigned (bp, TREE_INT_CST_LOW (expr));
+  bp_pack_var_len_int (bp, TREE_INT_CST_HIGH (expr));
+}
+
+
 /* Pack all the non-pointer fields of the TS_REAL_CST structure of
    expression EXPR into bitpack BP.  */
 
@@ -373,6 +384,9 @@ streamer_pack_tree_bitfields (struct output_block *ob,
      the types and sizes of each of the fields being packed.  */
   pack_ts_base_value_fields (bp, expr);
 
+  if (CODE_CONTAINS_STRUCT (code, TS_INT_CST))
+    pack_ts_int_cst_value_fields (bp, expr);
+
   if (CODE_CONTAINS_STRUCT (code, TS_REAL_CST))
     pack_ts_real_cst_value_fields (bp, expr);
 
@@ -562,9 +576,6 @@ write_ts_decl_common_tree_pointers (struct output_block *ob, tree expr,
      for early inlining so drop it on the floor instead of ICEing in
      dwarf2out.c.  */
 
-  if (TREE_CODE (expr) == PARM_DECL)
-    streamer_write_chain (ob, TREE_CHAIN (expr), ref_p);
-
   if ((TREE_CODE (expr) == VAR_DECL
        || TREE_CODE (expr) == PARM_DECL)
       && DECL_HAS_VALUE_EXPR_P (expr))
@@ -585,7 +596,7 @@ write_ts_decl_non_common_tree_pointers (struct output_block *ob, tree expr,
 {
   if (TREE_CODE (expr) == FUNCTION_DECL)
     {
-      stream_write_tree (ob, DECL_ARGUMENTS (expr), ref_p);
+      streamer_write_chain (ob, DECL_ARGUMENTS (expr), ref_p);
       stream_write_tree (ob, DECL_RESULT (expr), ref_p);
     }
   else if (TREE_CODE (expr) == TYPE_DECL)
@@ -938,9 +949,9 @@ streamer_write_tree_header (struct output_block *ob, tree expr)
 void
 streamer_write_integer_cst (struct output_block *ob, tree cst, bool ref_p)
 {
-  streamer_write_record_start (ob, lto_tree_code_to_tag (INTEGER_CST));
+  gcc_assert (!TREE_OVERFLOW (cst));
+  streamer_write_record_start (ob, LTO_integer_cst);
   stream_write_tree (ob, TREE_TYPE (cst), ref_p);
-  streamer_write_char_stream (ob->main_stream, TREE_OVERFLOW_P (cst));
   streamer_write_uhwi (ob, TREE_INT_CST_LOW (cst));
-  streamer_write_uhwi (ob, TREE_INT_CST_HIGH (cst));
+  streamer_write_hwi (ob, TREE_INT_CST_HIGH (cst));
 }
